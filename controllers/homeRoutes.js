@@ -71,3 +71,76 @@ router.get("/update/post/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+// Route to render page that allows user to add a comment to a post / This is only available if user is logged in (verified by withAuth)
+router.get("/add-comment/post/:id", withAuth, async (req, res) => {
+  try {
+    const onePostData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ],
+    });
+    if (!onePostData) {
+      res.status(404).json({ message: "No posts found with that ID" });
+      return;
+    } else {
+      const userPost = onePostData.get({ plain: true });
+      console.log(userPost);
+      res.render("comments", {
+        ...userPost,
+        loggedIn: req.session.loggedIn,
+      });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Route to render page that shows all comments for a singular post / This is only available if user is logged in (verified by withAuth)
+router.get("/comment/:id", withAuth, async (req, res) => {
+  try {
+    const commentData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+        {
+          model: Comment,
+          include: {
+            model: User,
+            attributes: ["username"],
+          },
+        },
+      ],
+    });
+    if (!commentData) {
+      res.status(404).json({ message: "No posts found with that ID" });
+      return;
+    } else {
+      const commentPost = commentData.get({ plain: true });
+      console.log(commentPost);
+      res.render("showComment", {
+        ...commentPost,
+        loggedIn: req.session.loggedIn,
+      });
+    }
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json(err);
+  }
+});
+
+// Route to render signup page if user is not yet logged in, if they are logged in, they are redirected to the homepage
+router.get("/signup", (req, res) =>
+  req.session.loggedIn ? res.redirect("/") : res.render("signup")
+);
+
+// Route to render login page if user is not yet logged in, if they are logged in, they are redirected to the homepage
+router.get("/login", (req, res) =>
+  req.session.loggedIn ? res.redirect("/") : res.render("login")
+);
+
+module.exports = router;
