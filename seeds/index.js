@@ -1,16 +1,14 @@
-const sequelize = require("../config/connection");
-// Requiring all seed data
-const seedUser = require("./userSeedData");
-const seedPost = require("./postSeedData");
-const seedComment = require("./commentSeedData");
+const sequelize = require('../config/connection');
+const seedUsers = require('./userData');
+const seedPosts = require('./postData');
+const seedComments = require('./commentData');
 
 const seedAll = async () => {
-  await sequelize.sync({ force: true });
-  await seedUser();
-  await seedPost();
-  await seedComment();
-  // Terminate Node.js process with success
-  process.exit(0);
+    await sequelize.sync({ force:true });
+    await seedUsers();
+    await seedPosts();
+    await seedComments();
+    process.exit(0);
 };
 
-seedAll();
+seedAll()
