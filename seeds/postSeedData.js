@@ -1,17 +1,29 @@
-[
+const { Post } = require("../models");
+
+const postData = [
   {
-    "name": "Music Near Me",
-    "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-    "needed_funding": 5000
+    title: "Why MVC is so important",
+    content:
+      "MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic.",
+    username_id: 1,
+    date_created: "6/11/2023",
   },
   {
-    "name": "The Ultimate Tech Quiz",
-    "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
-    "needed_funding": 10000
+    title: "Authentication vs Authorization",
+    content:
+      "There is a difference between authentication and authorization. Authentication means confirming your own identity, whereas authorization means being allowed access to the system.",
+    username_id: 1,
+    date_created: "6/11/2023",
   },
   {
-    "name": "Roll 'Em Up",
-    "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
-    "needed_funding": 800
-  }
-]
+    title: "Object-Relational Mapping",
+    content:
+      "I have really loved learning about ORMs. It's really simplified the way I create queries in SQL!",
+    username_id: 2,
+    date_created: "6/11/2023",
+  },
+];
+
+const seedPost = () => Post.bulkCreate(postData);
+
+module.exports = seedPost;
