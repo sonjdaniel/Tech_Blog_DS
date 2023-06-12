@@ -1,0 +1,43 @@
+<div>
+
+  <h2>Update Post</h2>
+
+  <form class="post-form">
+    <div>
+      <label for="update-post-title">Title</label>
+      <textarea
+        id="update-post-title"
+        rows="1"
+        class="form-control"
+      >{{title}}</textarea>
+    </div>
+    <div>
+      <label for="update-post-content">Content</label>
+      <textarea
+        id="update-post-content"
+        rows="3"
+        class="form-control"
+      >{{content}}</textarea>
+    </div>
+    <div class="my-2 d-flex justify-content-center">
+      <div>
+        <button
+          id="update-post-btn"
+          type="submit"
+          class="btn btn-primary mx-3"
+        >Update</button>
+      </div>
+      <div>
+        <button
+          id="delete-post-btn"
+          type="submit"
+          class="btn btn-primary mx-3"
+        >Delete</button>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+<script src="/js/post.js"></script>
