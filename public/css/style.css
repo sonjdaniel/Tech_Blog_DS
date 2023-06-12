@@ -1,24 +1,184 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+body {
+    font-family: Arial;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: flex-start;
+    background-color: gray;
 }
 
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+a {
+    color: black;
+    text-decoration: none;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+a:visited {
+    color: inherit;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+header {
+    padding: 40px;
+    text-align: center;
+    background: rgb(114, 120, 107);
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+nav {
+    display: flex;
+    background-color: lightgrey;
+}
+
+nav a, nav button {
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    background-color: lightgrey;
+}
+
+nav a:hover, nav button:hover {
+    color: lightgray;
+    background-color: black;
+}
+
+.btn-no-style {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 100%;
+    transition: color 0.1s;
+    margin-left: 16px;
+}
+
+.card {
+    margin: 20px;
+    border: 7px double black;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.login-card {
+    margin: 20px;
+    justify-content: space-between;
+    flex: 50%;
+    padding: 5px;
+    border: black;
+    border-style: double;
+    border-width: thick;
+    background-color: darkgreen;
+    color: white;
+}
+
+.card header {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    background-color: lightblue;
+    padding: 0.625rem;
+    border-radius: .1rem;
+}
+
+.card-body {
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+}
+
+.instruction {
+    color: darkred;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.form-input {
+    width: 100%;
+    height: 120px;
+}
+
+.signup-fields {
+    width: 100%;
+    height: 30px;
+}
+
+#post-title{
+    width: 100%;
+    height: 30px;
+}
+
+.post-header {
+    color: black;
+    font-size: 20px;
+    background-color: lightgray;
+    padding: 0px;
+    font-style: italic;
+    height: 35px;
+}
+
+.post-card {
+    margin: 20px;
+    padding: 5px;
+    border: black;
+    border-style: double;
+    border-width: thick;
+    background-color: lightcyan;
+    color: black;
+}
+
+.post-body {
+    text-align: left;
+    font-size: 20px;
+}
+
+.postButtons {
+    display: flex;
+    justify-content: end;
+    /* align-items: end; */
+    width: 80px;
+}
+
+.comment {
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    font-style: italic;
+    margin: 20px;
+    padding: 5px;
+    border: black;
+    border-style: solid;
+    border-width: thin;
+}
+
+.comment-text {
+    text-align: left;
+    padding-left: 25px;
+}
+
+.comment-user {
+    text-align: right;
+    padding-right: 25px;
+}
+
+#returnLink {
+    display: flex;
+    text-decoration: none;
+    font-style: italic;
+    font-size: 20px;
+    justify-content: center;
+    color: darkred;
 }
